@@ -43,7 +43,13 @@ exports.template = function(grunt, init, done) {
     init.prompt('author_url'),
     init.prompt('node_version', '>= 0.8.0'),
     init.prompt('main'),
-    init.prompt('npm_test', 'grunt nodeunit')
+    init.prompt('npm_test', 'grunt nodeunit'),
+    {
+      name: 'travis',
+      message: 'Will this project be tested with Travis CI?',
+      default: 'Y/n',
+      warning: 'If selected, you must enable Travis support for this project in https://travis-ci.org/profile'
+    },
   ], function(err, props) {
     props.keywords = [];
     props.devDependencies = {
@@ -51,9 +57,13 @@ exports.template = function(grunt, init, done) {
       'grunt-contrib-nodeunit': '~0.1.2',
       'grunt-contrib-watch': '~0.2.0',
     };
+    // TODO: compute dynamically?
+    props.travis = /y/i.test(props.travis);
+    props.travis_node_version = '0.10';
 
     // Files to copy (and process).
     var files = init.filesToCopy(props);
+    if (!props.travis) { delete files['.travis.yml']; }
 
     // Add properly-named license files.
     init.addLicenseFiles(files, props.licenses);
