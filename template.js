@@ -41,7 +41,7 @@ exports.template = function(grunt, init, done) {
     init.prompt('author_name'),
     init.prompt('author_email'),
     init.prompt('author_url'),
-    init.prompt('node_version'),
+    init.prompt('node_version', '>= 0.8.0'),
     init.prompt('main'),
     init.prompt('npm_test', 'grunt nodeunit')
   ], function(err, props) {
