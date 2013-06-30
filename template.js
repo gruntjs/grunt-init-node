@@ -2,7 +2,7 @@
  * grunt-init-node
  * https://gruntjs.com/
  *
- * Copyright (c) 2012 "Cowboy" Ben Alman, contributors
+ * Copyright (c) 2013 "Cowboy" Ben Alman, contributors
  * Licensed under the MIT license.
  */
 
@@ -53,9 +53,9 @@ exports.template = function(grunt, init, done) {
   ], function(err, props) {
     props.keywords = [];
     props.devDependencies = {
-      'grunt-contrib-jshint': '~0.1.1',
-      'grunt-contrib-nodeunit': '~0.1.2',
-      'grunt-contrib-watch': '~0.2.0',
+      'grunt-contrib-jshint': '~0.6.0',
+      'grunt-contrib-nodeunit': '~0.2.0',
+      'grunt-contrib-watch': '~0.4.0',
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
