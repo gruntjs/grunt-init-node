@@ -53,9 +53,9 @@ exports.template = function(grunt, init, done) {
   ], function(err, props) {
     props.keywords = [];
     props.devDependencies = {
-      'grunt-contrib-jshint': '~0.6.0',
+      'grunt-contrib-jshint': '~0.6.4',
       'grunt-contrib-nodeunit': '~0.2.0',
-      'grunt-contrib-watch': '~0.4.0',
+      'grunt-contrib-watch': '~0.5.3',
     };
     // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
