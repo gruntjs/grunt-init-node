@@ -57,9 +57,7 @@ exports.template = function(grunt, init, done) {
       'grunt-contrib-nodeunit': '~0.2.0',
       'grunt-contrib-watch': '~0.5.3',
     };
-    // TODO: compute dynamically?
     props.travis = /y/i.test(props.travis);
-    props.travis_node_version = '0.10';
 
     // Files to copy (and process).
     var files = init.filesToCopy(props);
