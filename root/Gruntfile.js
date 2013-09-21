@@ -12,26 +12,26 @@ module.exports = function(grunt) {
         jshintrc: '.jshintrc'
       },
       gruntfile: {
-        src: 'Gruntfile.js'
+        src: '<%= watch.gruntfile.files %>'
       },
       lib: {
-        src: ['lib/**/*.js']
+        src: '<%= watch.lib.files %>'
       },
       test: {
-        src: ['test/**/*.js']
+        src: '<%= watch.test.files %>'
       },
     },
     watch: {
       gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
+        files: 'Gruntfile.js',
         tasks: ['jshint:gruntfile']
       },
       lib: {
-        files: '<%= jshint.lib.src %>',
+        files: ['lib/**/*.js'],
         tasks: ['jshint:lib', 'nodeunit']
       },
       test: {
-        files: '<%= jshint.test.src %>',
+        files: ['test/**/*.js'],
         tasks: ['jshint:test', 'nodeunit']
       },
     },
